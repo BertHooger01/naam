@@ -1,1 +1,0 @@
-{"version":3,"file":"csv-exporter.d.ts","sourceRoot":"","sources":["../src/csv-exporter.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,SAAS,EAAE,MAAM,aAAa,CAAC;AAExC,qBAAa,WAAW;IACd,WAAW,CAAC,KAAK,EAAE,SAAS,EAAE,EAAE,QAAQ,EAAE,MAAM,GAAG,OAAO,CAAC,IAAI,CAAC;IAchE,oBAAoB,CAAC,KAAK,EAAE,SAAS,EAAE,EAAE,QAAQ,EAAE,MAAM,GAAG,OAAO,CAAC,IAAI,CAAC;CAyBlF"}
