@@ -12,7 +12,6 @@ import path from 'path';
 
 const program = new Command();
 
-// Ensure output directory exists
 const outputDir = path.join(process.cwd(), DEFAULT_OPTIONS.OUTPUT_DIR);
 if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
@@ -23,14 +22,12 @@ program
     .description('Generate authentic Dutch names using phonetic patterns, regional variations, and historical context')
     .version('2.0.0');
 
-// Add all commands
 program.addCommand(createGenerateCommand());
 program.addCommand(createExportCommand());
 program.addCommand(createRegionalCommand());
 program.addCommand(createHistoricalCommand());
 program.addCommand(createDemoCommand());
 
-// Show help if no command provided
 if (process.argv.length === 2) {
     program.help();
 }

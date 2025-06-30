@@ -36,7 +36,6 @@ export function createRegionalCommand(): Command {
                         const names = generator.generateRegionalNames(Math.ceil(count / 3), region.key, gender);
                         spinner.succeed(`${region.name} (${region.desc})`);
 
-                        // Handle output
                         if (options.output || options.format !== 'table') {
                             const { handleFileOutput } = await import('../ui/output');
 

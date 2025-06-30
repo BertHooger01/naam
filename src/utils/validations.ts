@@ -1,5 +1,5 @@
-import { Region, Generation, Gender, ExportFormat } from '../core/types';
-import { REGIONS, GENERATIONS, GENDERS, EXPORT_FORMATS } from '../core/constants';
+import { Gender, ExportFormat } from '../core/types';
+import { GENDERS, EXPORT_FORMATS } from '../core/constants';
 
 export class ValidationError extends Error {
     constructor(message: string) {
@@ -81,7 +81,6 @@ export function validateFilePath(filePath: string): string {
 
     const normalizedPath = filePath.trim();
 
-    // Check for invalid characters (basic validation)
     const invalidChars = /[<>:"|?*]/;
     if (invalidChars.test(normalizedPath)) {
         throw new ValidationError('File path contains invalid characters');

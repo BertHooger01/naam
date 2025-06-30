@@ -18,7 +18,6 @@ export async function runInteractiveDemo(): Promise<void> {
     await prettyConsole.showTitle();
     prettyConsole.showWelcomeBox();
 
-    // Show initial example
     const randomName = generator.generateName();
     prettyConsole.showSingleName('🎲 Random Name Example', randomName);
 
@@ -210,7 +209,6 @@ export async function runInteractiveDemo(): Promise<void> {
         console.log(chalk.white('• Export large datasets: dutch-names export -c 10000 --no-duplicates'));
     };
 
-    // Main interactive loop
     const runLoop = async (): Promise<void> => {
         while (true) {
             showMenu();
@@ -252,7 +250,6 @@ export async function runInteractiveDemo(): Promise<void> {
                     console.log(chalk.red('❌ Invalid choice. Please enter a number from 0-9.'));
             }
 
-            // Pause before showing menu again
             await askQuestion(chalk.dim('\nPress Enter to continue...'));
         }
     };

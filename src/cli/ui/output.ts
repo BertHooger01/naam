@@ -17,7 +17,6 @@ export async function handleFileOutput(
     withStats = false,
     options?: GenerationOptions
 ): Promise<void> {
-    // Ensure the output path is absolute or relative to cwd
     if (!path.isAbsolute(outputPath)) {
         outputPath = path.resolve(outputPath);
     }

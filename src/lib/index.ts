@@ -16,5 +16,4 @@ export { CSVExporter, JSONExporter, TXTExporter } from '../export';
 export { calculateStats, formatFileName } from '../utils/helpers';
 export { SeededRandom } from '../utils/random';
 
-// Create a default instance for convenience
 export const dutchNameGenerator = new DutchPhoneticNameGenerator();

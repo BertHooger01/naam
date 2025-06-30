@@ -112,7 +112,6 @@ export class PrettyConsole {
         console.log('\n' + chalk.white.bold.underline('📊 Generation Statistics'));
         console.log(statsTable.toString());
 
-        // Show distributions if applicable
         if (stats.regionDistribution && Object.keys(stats.regionDistribution).length > 1) {
             console.log('\n' + chalk.white.bold.underline('🗺️ Regional Distribution'));
             Object.entries(stats.regionDistribution).forEach(([region, count]) => {

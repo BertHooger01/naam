@@ -43,7 +43,6 @@ export function createHistoricalCommand(): Command {
                         allNames.push(...names);
                         spinner.succeed(`${era.name} (${era.desc})`);
 
-                        // Show individual era if using table format and no output file
                         if (!options.output && options.format === 'table') {
                             const { PrettyConsole } = await import('../ui/console');
                             const prettyConsole = new PrettyConsole();
@@ -56,7 +55,6 @@ export function createHistoricalCommand(): Command {
                     }
                 }
 
-                // Handle file output or combined output
                 if (options.output || options.format !== 'table') {
                     const { handleFileOutput } = await import('../ui/output');
 
