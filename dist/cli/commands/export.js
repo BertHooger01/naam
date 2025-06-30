@@ -85,7 +85,7 @@ function createExportCommand() {
                 // Generate names
                 const names = generator.generateNames(count, generationOptions);
                 spinner.text = 'Exporting names...';
-                // Handle file output
+                // Handle file output with proper options
                 const { handleFileOutput } = await Promise.resolve().then(() => __importStar(require('../ui/output')));
                 await handleFileOutput(names, outputFile, options.format, options.withStats, generationOptions);
                 spinner.succeed(`Exported ${count} names to ${outputFile}`);

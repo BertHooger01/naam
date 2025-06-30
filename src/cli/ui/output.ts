@@ -17,6 +17,7 @@ export async function handleFileOutput(
     withStats = false,
     options?: GenerationOptions
 ): Promise<void> {
+    // Ensure the output path is absolute or relative to cwd
     if (!path.isAbsolute(outputPath)) {
         outputPath = path.resolve(outputPath);
     }
@@ -40,7 +41,8 @@ export async function handleFileOutput(
             if (withStats) {
                 jsonExporter.exportToJSONWithStats(names, outputPath, options);
             } else {
-                jsonExporter.exportToJSON(names, outputPath);
+                // Always use structured JSON format, not just flat array
+                jsonExporter.exportToJSONWithStats(names, outputPath, options);
             }
             console.log(chalk.green(`✓ JSON exported to: ${outputPath}`));
             break;
@@ -78,7 +80,17 @@ export function handleConsoleOutput(names: DutchName[], format: string, quiet: b
             break;
 
         case 'json':
-            console.log(JSON.stringify(names, null, 2));
+            // Always output structured JSON format
+            const jsonOutput = {
+                metadata: {
+                    totalNames: names.length,
+                    maleCount: names.filter(n => n.gender === 'male').length,
+                    femaleCount: names.filter(n => n.gender === 'female').length,
+                    generatedAt: new Date().toISOString()
+                },
+                names
+            };
+            console.log(JSON.stringify(jsonOutput, null, 2));
             break;
 
         default:

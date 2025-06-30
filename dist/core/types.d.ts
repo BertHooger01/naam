@@ -9,7 +9,7 @@ export interface DutchName {
 export interface GenerationOptions {
     gender?: 'male' | 'female';
     region?: 'north' | 'south' | 'randstad' | 'general';
-    generation?: 'traditional' | 'modern' | 'contemporary';
+    generation?: Generation;
     avoidDuplicates?: boolean;
     seed?: number;
 }

@@ -13,6 +13,5 @@ Object.defineProperty(exports, "calculateStats", { enumerable: true, get: functi
 Object.defineProperty(exports, "formatFileName", { enumerable: true, get: function () { return helpers_1.formatFileName; } });
 var random_1 = require("../utils/random");
 Object.defineProperty(exports, "SeededRandom", { enumerable: true, get: function () { return random_1.SeededRandom; } });
-// Create a default instance for convenience
 exports.dutchNameGenerator = new generator_1.DutchPhoneticNameGenerator();
 //# sourceMappingURL=index.js.map

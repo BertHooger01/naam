@@ -125,7 +125,6 @@ class PrettyConsole {
         statsTable.push([chalk_1.default.green('Total Generated'), chalk_1.default.white.bold(stats.totalGenerated.toString())], [chalk_1.default.blue('Males'), `${chalk_1.default.white.bold(stats.maleCount.toString())} ${chalk_1.default.dim(`(${((stats.maleCount / stats.totalGenerated) * 100).toFixed(1)}%)`)}`], [chalk_1.default.magenta('Females'), `${chalk_1.default.white.bold(stats.femaleCount.toString())} ${chalk_1.default.dim(`(${((stats.femaleCount / stats.totalGenerated) * 100).toFixed(1)}%)`)}`], [chalk_1.default.yellow('Unique First Names'), chalk_1.default.white.bold(stats.uniqueFirstNames.toString())], [chalk_1.default.yellow('Unique Last Names'), chalk_1.default.white.bold(stats.uniqueLastNames.toString())], [chalk_1.default.cyan('Avg First Name Length'), chalk_1.default.white.bold(stats.avgFirstNameLength.toString())], [chalk_1.default.cyan('Avg Last Name Length'), chalk_1.default.white.bold(stats.avgLastNameLength.toString())]);
         console.log('\n' + chalk_1.default.white.bold.underline('📊 Generation Statistics'));
         console.log(statsTable.toString());
-        // Show distributions if applicable
         if (stats.regionDistribution && Object.keys(stats.regionDistribution).length > 1) {
             console.log('\n' + chalk_1.default.white.bold.underline('🗺️ Regional Distribution'));
             Object.entries(stats.regionDistribution).forEach(([region, count]) => {

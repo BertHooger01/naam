@@ -36,10 +36,12 @@ export function createExportCommand(): Command {
 
                 validateFilePath(outputFile);
 
+                // Create generator and spinner
                 const generator = new DutchPhoneticNameGenerator(seed);
                 const spinner = ora(`Generating ${count} names for export...`).start();
 
                 try {
+                    // Set up generation options
                     const generationOptions: GenerationOptions = {
                         gender,
                         region,
@@ -48,9 +50,11 @@ export function createExportCommand(): Command {
                         seed
                     };
 
+                    // Generate names
                     const names = generator.generateNames(count, generationOptions);
                     spinner.text = 'Exporting names...';
 
+                    // Handle file output with proper options
                     const { handleFileOutput } = await import('../ui/output');
                     await handleFileOutput(names, outputFile, options.format, options.withStats, generationOptions);
 

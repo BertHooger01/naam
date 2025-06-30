@@ -53,7 +53,6 @@ async function runInteractiveDemo() {
     const generator = new generator_1.DutchPhoneticNameGenerator();
     await prettyConsole.showTitle();
     prettyConsole.showWelcomeBox();
-    // Show initial example
     const randomName = generator.generateName();
     prettyConsole.showSingleName('🎲 Random Name Example', randomName);
     console.log(chalk_1.default.yellow.bold('\n🎮 Interactive Mode - Choose an option:\n'));
@@ -217,7 +216,6 @@ async function runInteractiveDemo() {
         console.log(chalk_1.default.white('• Combine options: dutch-names gen -r north -e traditional -g male'));
         console.log(chalk_1.default.white('• Export large datasets: dutch-names export -c 10000 --no-duplicates'));
     };
-    // Main interactive loop
     const runLoop = async () => {
         while (true) {
             showMenu();
@@ -257,7 +255,6 @@ async function runInteractiveDemo() {
                 default:
                     console.log(chalk_1.default.red('❌ Invalid choice. Please enter a number from 0-9.'));
             }
-            // Pause before showing menu again
             await askQuestion(chalk_1.default.dim('\nPress Enter to continue...'));
         }
     };

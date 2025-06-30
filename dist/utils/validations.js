@@ -72,7 +72,6 @@ function validateFilePath(filePath) {
         throw new ValidationError('File path cannot be empty');
     }
     const normalizedPath = filePath.trim();
-    // Check for invalid characters (basic validation)
     const invalidChars = /[<>:"|?*]/;
     if (invalidChars.test(normalizedPath)) {
         throw new ValidationError('File path contains invalid characters');

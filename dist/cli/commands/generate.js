@@ -59,16 +59,13 @@ function createGenerateCommand() {
         .option('--quiet', 'minimal output')
         .action(async (options) => {
         try {
-            // Validate inputs
             const count = (0, validations_1.validateCount)(options.count);
             const gender = (0, validations_1.validateGender)(options.gender);
             const region = (0, validations_1.validateRegion)(options.region);
             const generation = (0, validations_1.validateGeneration)(options.era);
             const seed = (0, validations_1.validateSeed)(options.seed);
-            // Create generator
             const generator = new generator_1.DutchPhoneticNameGenerator(seed);
             const spinner = (0, ora_1.default)(`Generating ${count} Dutch names...`).start();
-            // Set up generation options
             const generationOptions = {
                 gender,
                 region,
@@ -76,9 +73,7 @@ function createGenerateCommand() {
                 avoidDuplicates: options.noDuplicates,
                 seed
             };
-            // Generate names
             const names = generator.generateNames(count, generationOptions);
-            // Build success message
             let description = `Generated ${count} authentic Dutch names`;
             if (region)
                 description += ` (${region} region)`;
@@ -87,7 +82,6 @@ function createGenerateCommand() {
             if (seed)
                 description += ` (seed: ${seed})`;
             spinner.succeed(description + '!');
-            // Handle output
             if (options.output || options.format !== 'table') {
                 const { handleFileOutput } = await Promise.resolve().then(() => __importStar(require('../ui/output')));
                 let outputFile = options.output;

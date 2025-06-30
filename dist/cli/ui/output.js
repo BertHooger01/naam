@@ -38,7 +38,8 @@ async function handleFileOutput(names, outputPath, format, withStats = false, op
                 jsonExporter.exportToJSONWithStats(names, outputPath, options);
             }
             else {
-                jsonExporter.exportToJSON(names, outputPath);
+                // Always use structured JSON format, not just flat array
+                jsonExporter.exportToJSONWithStats(names, outputPath, options);
             }
             console.log(chalk_1.default.green(`✓ JSON exported to: ${outputPath}`));
             break;
@@ -71,7 +72,17 @@ function handleConsoleOutput(names, format, quiet) {
             });
             break;
         case 'json':
-            console.log(JSON.stringify(names, null, 2));
+            // Always output structured JSON format
+            const jsonOutput = {
+                metadata: {
+                    totalNames: names.length,
+                    maleCount: names.filter(n => n.gender === 'male').length,
+                    femaleCount: names.filter(n => n.gender === 'female').length,
+                    generatedAt: new Date().toISOString()
+                },
+                names
+            };
+            console.log(JSON.stringify(jsonOutput, null, 2));
             break;
         default:
             names.forEach((name, index) => {

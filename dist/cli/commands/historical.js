@@ -72,7 +72,6 @@ function createHistoricalCommand() {
                     });
                     allNames.push(...names);
                     spinner.succeed(`${era.name} (${era.desc})`);
-                    // Show individual era if using table format and no output file
                     if (!options.output && options.format === 'table') {
                         const { PrettyConsole } = await Promise.resolve().then(() => __importStar(require('../ui/console')));
                         const prettyConsole = new PrettyConsole();
@@ -84,7 +83,6 @@ function createHistoricalCommand() {
                     throw error;
                 }
             }
-            // Handle file output or combined output
             if (options.output || options.format !== 'table') {
                 const { handleFileOutput } = await Promise.resolve().then(() => __importStar(require('../ui/output')));
                 let outputFile = options.output;
