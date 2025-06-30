@@ -1,0 +1,40 @@
+{
+    "name": "dutch-name-generator",
+    "version": "1.0.0",
+    "description": "Random naam",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "start": "node dist/cli.js",
+        "dev": "ts-node src/cli.ts",
+        "demo": "ts-node src/demo.ts",
+        "cli": "ts-node src/cli.ts"
+    },
+    "keywords": [
+        "dutch",
+        "names",
+        "generator",
+        "random",
+        "typescript"
+    ],
+    "author": "Dili",
+    "license": "MIT",
+    "dependencies": {
+        "chalk": "^5.3.0",
+        "boxen": "^7.1.1",
+        "cli-table3": "^0.6.3",
+        "figlet": "^1.7.0",
+        "gradient-string": "^2.0.2",
+        "ora": "^7.0.1",
+        "commander": "^11.0.0",
+        "csv-writer": "^1.6.0"
+    },
+    "devDependencies": {
+        "@types/figlet": "^1.7.0",
+        "@types/gradient-string": "^1.1.6",
+        "@types/node": "^20.0.0",
+        "ts-node": "^10.9.0",
+        "typescript": "^5.0.0"
+    }
+}
